@@ -1,6 +1,16 @@
 version: '3.6'
 
-services: 
+services:
+    db:
+        image: postgres
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_DB=dathena
+        ports:
+            - "54333:5432"
+        volumes:
+            - ./postgres_data:/var/lib/postgresql/data/
     app:
         build:
             context: .
@@ -8,11 +18,11 @@ services:
             - "8000:8000"
         volumes:
             - ./app:/app
+        restart:
+            always
         command: >
-            sh -c "python manage.py runserver 0.0.0.0:8000"
+            sh -c "source ./wait-for-postgres.sh db
+            && source ./entrypoint.sh"
         depends_on:
-          - database
-            
+          - db
 
-    database:
-        image: postgres
