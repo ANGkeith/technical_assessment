@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+
+from .models import LanguageData, LanguageLabel
+
+admin.site.register(LanguageLabel)
+admin.site.register(LanguageData)
+
+
