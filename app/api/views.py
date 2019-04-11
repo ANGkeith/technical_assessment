@@ -1,13 +1,9 @@
-# generic
-
-
 from rest_framework import generics, status
 from rest_framework.response import Response
 from .models import LanguageData, LanguageLabel, ConfidentialityData, ConfidentialityLabel, DoctypeData, \
     DoctypeLabel, File
 from .serializer import LanguageDataSerializer, LanguageLabelSerializer, ConfidentialityDataSerializer, \
     ConfidentialityLabelSerializer, DoctypeDataSerializer, DoctypeLabelSerializer, FileSerializer
-
 
 
 # Language

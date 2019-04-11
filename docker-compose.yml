@@ -25,5 +25,17 @@ services:
             && source ./script/entrypoint.sh"
         depends_on:
           - db
+          - rabbitmq
+#          - celery_worker
+    rabbitmq:
+        image: rabbitmq:3.7-alpine
+# can't get this to work
+#    celery_worker:
+#        <<: *app
+#        command: celery -A app worker --loglevel=info
+#        ports: []
+#        depends_on:
+#          - rabbitmq
+#          - db
 volumes:
   postgres_data:

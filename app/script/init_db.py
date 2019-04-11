@@ -8,10 +8,6 @@ PATH_TO_DATA = '/app/script/data/'
 data = {'username': 'admin', 'password': 'admin'}
 r = requests.post(url=BASEURL + 'api-token-auth/', data=data)
 token = r.json()['token']
-headers = {'Authorization': 'Token ' + token}
-
-
-
 
 headers = {'Authorization': 'Token ' + token,'Content-type': 'application/json'}
 

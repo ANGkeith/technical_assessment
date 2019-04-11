@@ -25,7 +25,7 @@ SECRET_KEY = 'xjv3l9-1!)-h(qfu$7#q3tnk=t%^p9iha)a49pzakj31gyh3vy'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'testserver']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'testserver',]
 
 
 # Application definition
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'api',
-    'django_cleanup'
+    'django_cleanup',
 ]
 
 MIDDLEWARE = [
@@ -97,6 +97,9 @@ DATABASES = {
         'PORT': 5432,
     }
 }
+
+CELERY_BROKER_URL = "rabbitmq"
+
 
 
 # Password validation
