@@ -3,9 +3,10 @@
 
 from rest_framework import generics, status
 from rest_framework.response import Response
-from .models import LanguageData, LanguageLabel, ConfidentialityData, ConfidentialityLabel, DoctypeData, DoctypeLabel
+from .models import LanguageData, LanguageLabel, ConfidentialityData, ConfidentialityLabel, DoctypeData, \
+    DoctypeLabel, File
 from .serializer import LanguageDataSerializer, LanguageLabelSerializer, ConfidentialityDataSerializer, \
-    ConfidentialityLabelSerializer, DoctypeDataSerializer, DoctypeLabelSerializer
+    ConfidentialityLabelSerializer, DoctypeDataSerializer, DoctypeLabelSerializer, FileSerializer
 
 
 
@@ -109,4 +110,13 @@ class SingleDoctypeLabelRudView(generics.RetrieveUpdateDestroyAPIView):
     queryset = DoctypeLabel.objects.all()
     serializer_class = DoctypeLabelSerializer
     lookup_field = 'name'
+
+class FileView(generics.ListCreateAPIView):
+   queryset = File.objects.all()
+   serializer_class = FileSerializer
+
+class SingleFileView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = File.objects.all()
+    serializer_class = FileSerializer
+    lookup_field = 'pk'
 

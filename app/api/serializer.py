@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
-from .models import LanguageData, LanguageLabel, DoctypeData, DoctypeLabel, ConfidentialityLabel, ConfidentialityData
+from .models import LanguageData, LanguageLabel, DoctypeData, DoctypeLabel, ConfidentialityLabel, ConfidentialityData, \
+    File
 
 
 class LanguageLabelSerializer(serializers.ModelSerializer):
@@ -49,4 +50,9 @@ class DoctypeDataSerializer(serializers.ModelSerializer):
             'name',
             'total_docs',
         )
+class FileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = File
+        fields = '__all__'
+
 

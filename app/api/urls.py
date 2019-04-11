@@ -35,4 +35,7 @@ urlpatterns = [
 
     re_path(r'^doctype-labels/$', views.DoctypeLabelView.as_view()),
     re_path(r'^doctype-labels/(?P<name>(?:[^%]|%[0-9A-Fa-f]{2})+)/$', views.SingleDoctypeLabelRudView.as_view()),
+
+    re_path(r'^file/$', views.FileView.as_view()),
+    re_path(r'^file/(?P<pk>\d+)$', views.SingleFileView.as_view()),
 ]
