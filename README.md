@@ -1,6 +1,7 @@
 # Technical Test
 
 #Installation
+
 Change directory into the directory that contains docker-compose.yml and start the container with:
 
 ```
