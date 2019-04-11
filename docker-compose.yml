@@ -10,7 +10,7 @@ services:
         ports:
             - "54333:5432"
         volumes:
-            - ./postgres_data:/var/lib/postgresql/data/
+            - postgres_data:/var/lib/postgresql/data/
     app:
         build:
             context: .
@@ -21,8 +21,9 @@ services:
         restart:
             always
         command: >
-            sh -c "source ./wait-for-postgres.sh db
-            && source ./entrypoint.sh"
+            sh -c "source ./script/wait-for-postgres.sh db
+            && source ./script/entrypoint.sh"
         depends_on:
           - db
-
+volumes:
+  postgres_data:
